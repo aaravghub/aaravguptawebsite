@@ -95,7 +95,14 @@ nav b{color:var(--accent)}
   transform:scale(1.05);
 }
 
-/* liquid glass hero boxes */
+/* Added for multiple images in a row */
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
 .hero-impact{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
@@ -153,7 +160,7 @@ nav b{color:var(--accent)}
   transform:translateY(-8px);
   border-color:rgba(255,77,0,0.4);
   box-shadow:0 20px 60px rgba(255,77,0,0.15),
-             0 0 40px rgba(255,77,0,0.1) inset;
+               0 0 40px rgba(255,77,0,0.1) inset;
 }
 
 .glass-box .number{
@@ -226,7 +233,6 @@ nav b{color:var(--accent)}
   50%{transform:translateY(-10px)}
 }
 
-/* marquee */
 .marquee{
   overflow:hidden;
   border-top:1px solid var(--border);
@@ -256,7 +262,6 @@ nav b{color:var(--accent)}
   to{transform:translateX(-50%)}
 }
 
-/* timeline */
 .timeline{
   margin-top:80px;
   border-left:1px solid var(--border);
@@ -307,7 +312,6 @@ nav b{color:var(--accent)}
   margin-bottom:12px;
 }
 
-/* certificates */
 .cert-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -321,13 +325,6 @@ nav b{color:var(--accent)}
   transition:all 0.3s ease;
   animation:fadeInUp 0.6s ease-out backwards;
 }
-.cert:nth-child(1){animation-delay:0.1s}
-.cert:nth-child(2){animation-delay:0.2s}
-.cert:nth-child(3){animation-delay:0.3s}
-.cert:nth-child(4){animation-delay:0.4s}
-.cert:nth-child(5){animation-delay:0.5s}
-.cert:nth-child(6){animation-delay:0.6s}
-
 .cert:hover{
   transform:translateY(-5px);
   border-color:var(--accent);
@@ -344,7 +341,6 @@ nav b{color:var(--accent)}
   font-weight:900;
 }
 
-/* table styling */
 table{
   width:100%;
   border-collapse:collapse;
@@ -367,14 +363,10 @@ th{
 td{
   color:#888;
 }
-tbody tr{
-  transition:background 0.2s ease;
-}
 tbody tr:hover{
   background:rgba(255,77,0,0.05);
 }
 
-/* resources grid */
 .resources-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -433,20 +425,8 @@ tbody tr:hover{
   animation:float 6s ease-in-out infinite;
 }
 
-/* floating accent elements */
-.floating-accent{
-  position:absolute;
-  width:300px;
-  height:300px;
-  background:radial-gradient(circle, rgba(255,77,0,0.15) 0%, transparent 70%);
-  border-radius:50%;
-  pointer-events:none;
-  animation:float 8s ease-in-out infinite;
-  z-index:0;
-}
-
 @media(max-width:900px){
-  .rail,.stats,.cert-grid,.t,.resources-grid,.hero-impact{grid-template-columns:1fr}
+  .rail,.cert-grid,.t,.resources-grid,.hero-impact{grid-template-columns:1fr}
   h1{font-size:15vw}
   h2{font-size:3rem}
   .glass-box{padding:30px 20px}
@@ -596,21 +576,32 @@ that keep working after they're pushed past what they were designed for.</p>
     Failure modes are intentional — I design systems expecting abuse.
   </p>
 </div>
+
+<div class="img-grid">
+    <div class="img"><img src="Full Port Info/projects/Screenshot 2026-02-03 125603.png"></div>
+    <div class="img"><img src="Full Port Info/projects/Screenshot 2026-02-03 125615.png"></div>
+    <div class="img"><img src="Full Port Info/projects/Screenshot 2026-02-03 125624.png"></div>
+</div>
 </section>
 
 <section id="manufacturing">
 <h3>Manufacturing & Business</h3>
 <h2>Revenue Proof</h2>
 
-<div class="img">
-  <img src="Full Port Info/projects/dd6e4f2a-7e18-4152-baac-cfce646c067a">
+<div class="rail">
+    <div class="img">
+      <img src="Full Port Info/projects/dd6e4f2a-7e18-4152-baac-cfce646c067a">
+    </div>
+    <div class="img">
+      <img src="Full Port Info/projects/88741369-026c-48b4-8e7c-897b27863110">
+    </div>
 </div>
 
-<div class="stats">
-  <div class="stat"><b>$1,200+</b><span>First-Year Revenue</span></div>
-  <div class="stat"><b>100+</b><span>Orders</span></div>
-  <div class="stat"><b>Age 7</b><span>First Printer</span></div>
-  <div class="stat"><b>Age 13</b><span>Bambu P1S</span></div>
+<div class="stats" style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; text-align: center;">
+  <div class="stat"><b>$1,200+</b><br><span style="color:var(--muted); font-size: 0.8rem;">First-Year Revenue</span></div>
+  <div class="stat"><b>100+</b><br><span style="color:var(--muted); font-size: 0.8rem;">Orders</span></div>
+  <div class="stat"><b>Age 7</b><br><span style="color:var(--muted); font-size: 0.8rem;">First Printer</span></div>
+  <div class="stat"><b>Age 13</b><br><span style="color:var(--muted); font-size: 0.8rem;">Bambu P1S</span></div>
 </div>
 
 <div style="margin-top:40px">
@@ -1034,107 +1025,12 @@ and continue to support skill development across domains.</p>
   <p>Arduino project sharing and technical support</p>
 </a>
 
-<a href="https://www.reddit.com/r/CNC/" target="_blank" class="resource-link">
-  <h5>r/CNC</h5>
-  <p>CNC machining discussion and project showcase</p>
-</a>
-
-<a href="https://www.reddit.com/r/SolidWorks/" target="_blank" class="resource-link">
-  <h5>r/SolidWorks</h5>
-  <p>SolidWorks community for tips and troubleshooting</p>
-</a>
-
-<a href="https://www.reddit.com/r/rfelectronics/" target="_blank" class="resource-link">
-  <h5>r/rfelectronics</h5>
-  <p>RF design, SDR, and wireless communication systems</p>
-</a>
-
-<a href="https://simplify3d.com/software/" target="_blank" class="resource-link">
-  <h5>Simplify3D</h5>
-  <p>Advanced slicing software for multi-material printing</p>
-</a>
-
-<a href="https://www.sololearn.com/" target="_blank" class="resource-link">
-  <h5>SoloLearn</h5>
-  <p>Mobile-first programming courses with peer learning</p>
-</a>
-
-<a href="https://www.solidworks.com/sw/education/student-software-3d-mcad.htm" target="_blank" class="resource-link">
-  <h5>SolidWorks Student Edition</h5>
-  <p>Free SolidWorks license for verified students</p>
-</a>
-
-<a href="https://www.youtube.com/user/SolidWorksOfficial" target="_blank" class="resource-link">
-  <h5>SolidWorks YouTube</h5>
-  <p>Official tutorials, tips, and feature demonstrations</p>
-</a>
-
-<a href="https://www.sparkfun.com/tutorials" target="_blank" class="resource-link">
-  <h5>SparkFun Tutorials</h5>
-  <p>Electronics and embedded systems project guides</p>
-</a>
-
-<a href="https://www.thingiverse.com/" target="_blank" class="resource-link">
-  <h5>Thingiverse</h5>
-  <p>Largest 3D printable model repository</p>
-</a>
-
-<a href="https://www.tinkercad.com/" target="_blank" class="resource-link">
-  <h5>Tinkercad</h5>
-  <p>Browser-based beginner CAD and circuit simulation</p>
-</a>
-
-<a href="https://ultimaker.com/software/ultimaker-cura/" target="_blank" class="resource-link">
-  <h5>UltiMaker Cura</h5>
-  <p>Industry-standard open-source slicing software</p>
-</a>
-
-<a href="https://www.udemy.com/topic/solidworks/" target="_blank" class="resource-link">
-  <h5>Udemy SolidWorks Courses</h5>
-  <p>Paid SolidWorks courses from beginner to CSWA prep</p>
-</a>
-
-<a href="https://www.w3schools.com/" target="_blank" class="resource-link">
-  <h5>W3Schools</h5>
-  <p>Web development tutorials for HTML, CSS, JavaScript, Python</p>
-</a>
-
-<a href="https://wiki.bambulab.com/en/home" target="_blank" class="resource-link">
-  <h5>Wiki Bambu Lab</h5>
-  <p>Official documentation for Bambu printers and software</p>
-</a>
-
-<a href="https://www.youtube.com/c/teachingtechau" target="_blank" class="resource-link">
-  <h5>YouTube: Teaching Tech</h5>
-  <p>3D printing calibration and advanced troubleshooting</p>
-</a>
-
-<a href="https://www.youtube.com/c/ThomasSanladerer" target="_blank" class="resource-link">
-  <h5>YouTube: Thomas Sanladerer</h5>
-  <p>In-depth 3D printer reviews and technical breakdowns</p>
-</a>
-
-<a href="https://www.youtube.com/c/CNGIndustrial" target="_blank" class="resource-link">
-  <h5>YouTube: NYC CNC</h5>
-  <p>CNC machining tutorials and shop workflows</p>
-</a>
-
 </div>
-
-<div class="rail" style="margin-top:80px;">
-  <div class="img">
-    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="CAD Workspace">
-  </div>
-  <p>
-    These resources represent years of hands-on learning across mechanical design, 
-    digital fabrication, and embedded systems. Every link is a pathway to practical 
-    engineering knowledge — tested, verified, and field-proven.
-  </p>
-</div>
-
 </section>
 
-<div class="footer">AARAV</div>
+<div class="footer">
+  AARAV GUPTA
+</div>
 
 </body>
 </html>
