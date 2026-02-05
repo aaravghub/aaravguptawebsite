@@ -85,6 +85,7 @@ nav b{color:var(--accent)}
   border:1px solid var(--border);
   background:#0a0a0a;
   overflow:hidden;
+  cursor: zoom-in;
 }
 .img img{
   width:100%;
@@ -95,7 +96,6 @@ nav b{color:var(--accent)}
   transform:scale(1.05);
 }
 
-/* Added for multiple images in a row */
 .img-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -425,6 +425,31 @@ tbody tr:hover{
   animation:float 6s ease-in-out infinite;
 }
 
+/* LIGHTBOX STYLES */
+#lightbox {
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 50px rgba(255,77,0,0.2);
+}
+#lightbox-close {
+  position: absolute;
+  top: 40px; right: 40px;
+  color: var(--accent);
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: 900;
+}
+
 @media(max-width:900px){
   .rail,.cert-grid,.t,.resources-grid,.hero-impact{grid-template-columns:1fr}
   h1{font-size:15vw}
@@ -435,6 +460,11 @@ tbody tr:hover{
 </head>
 
 <body>
+
+<div id="lightbox">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="">
+</div>
 
 <nav>
   <b>AARAV GUPTA</b>
@@ -507,7 +537,7 @@ that keep working after they're pushed past what they were designed for.</p>
     to production logistics and post-deployment auditing.
   </p>
   <div class="img">
-    <img src="Full Port Info/projects/WhatsApp Image 2026-01-15 at 6.43.48 PM.jpeg">
+    <img src="Full Port Info/projects/WhatsApp Image 2026-01-15 at 6.43.48 PM.jpeg" alt="Lead Project Robot">
   </div>
 </div>
 </section>
@@ -569,7 +599,7 @@ that keep working after they're pushed past what they were designed for.</p>
 
 <div class="rail">
   <div class="img">
-    <img src="Full Port Info/projects/Screenshot 2026-02-03 125538.png">
+    <img src="Full Port Info/projects/Screenshot 2026-02-03 125538.png" alt="CAD Detail 1">
   </div>
   <p>
     Every mechanism is designed in CAD, stress-tested virtually, then iterated physically.
@@ -578,9 +608,9 @@ that keep working after they're pushed past what they were designed for.</p>
 </div>
 
 <div class="img-grid">
-    <div class="img"><img src="Full Port Info/projects/Screenshot 2026-02-03 125603.png"></div>
-    <div class="img"><img src="Full Port Info/projects/Screenshot 2026-02-03 125615.png"></div>
-    <div class="img"><img src="Full Port Info/projects/Screenshot 2026-02-03 125624.png"></div>
+    <div class="img"><img src="Full Port Info/projects/Screenshot 2026-02-03 125603.png" alt="CAD Detail 2"></div>
+    <div class="img"><img src="Full Port Info/projects/Screenshot 2026-02-03 125615.png" alt="CAD Detail 3"></div>
+    <div class="img"><img src="Full Port Info/projects/Screenshot 2026-02-03 125624.png" alt="CAD Detail 4"></div>
 </div>
 </section>
 
@@ -590,18 +620,18 @@ that keep working after they're pushed past what they were designed for.</p>
 
 <div class="rail">
     <div class="img">
-      <img src="Full Port Info/projects/dd6e4f2a-7e18-4152-baac-cfce646c067a">
+      <img src="Full Port Info/projects/dd6e4f2a-7e18-4152-baac-cfce646c067a" alt="3D Printed Product">
     </div>
     <div class="img">
-      <img src="Full Port Info/projects/88741369-026c-48b4-8e7c-897b27863110">
+      <img src="Full Port Info/projects/88741369-026c-48b4-8e7c-897b27863110" alt="3D Printer Setup">
     </div>
 </div>
 
-<div class="stats" style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; text-align: center;">
-  <div class="stat"><b>$1,200+</b><br><span style="color:var(--muted); font-size: 0.8rem;">First-Year Revenue</span></div>
-  <div class="stat"><b>100+</b><br><span style="color:var(--muted); font-size: 0.8rem;">Orders</span></div>
-  <div class="stat"><b>Age 7</b><br><span style="color:var(--muted); font-size: 0.8rem;">First Printer</span></div>
-  <div class="stat"><b>Age 13</b><br><span style="color:var(--muted); font-size: 0.8rem;">Bambu P1S</span></div>
+<div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; text-align: center;">
+  <div><b>$1,200+</b><br><span style="color:var(--muted); font-size: 0.8rem;">First-Year Revenue</span></div>
+  <div><b>100+</b><br><span style="color:var(--muted); font-size: 0.8rem;">Orders</span></div>
+  <div><b>Age 7</b><br><span style="color:var(--muted); font-size: 0.8rem;">First Printer</span></div>
+  <div><b>Age 13</b><br><span style="color:var(--muted); font-size: 0.8rem;">Bambu P1S</span></div>
 </div>
 
 <div style="margin-top:40px">
@@ -668,7 +698,7 @@ Friday, and Sunday</b> to push my own technical limits in body mechanics and ath
     </a>
   </div>
   <div>
-    <a href="https://www.devdiscourse.com/article/business/2613490-cultural-heritage-of-maharashtra-arrived-in-canada-germany" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:700; font-size:1.2rem;">
+    <a href="https://www.devdiscourse.com/article/business/2613490-cultural-heritage-of-maharashtar-arrived-in-canada-germany" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:700; font-size:1.2rem;">
       &rarr; DEVDISCOURSE: Mumbai Students to Demonstrate Mallakhamb in USA and Germany
     </a>
   </div>
@@ -759,7 +789,7 @@ wireless systems for defensive understanding.
     and iterative troubleshooting through rebuilds.
   </p>
   <div class="img">
-    <img src="Full Port Info/projects/pc_build.png">
+    <img src="Full Port Info/projects/pc_build.png" alt="First PC Build">
   </div>
 </div>
 </section>
@@ -838,199 +868,41 @@ and system hardening.
 <h3>Learning Resources</h3>
 <h2>Knowledge Base</h2>
 
-<p>
-A comprehensive collection of learning resources across CAD, manufacturing, programming, 
-and hardware systems. These are the tools and platforms that shaped my technical foundation 
-and continue to support skill development across domains.</p>
+<p>A comprehensive collection of learning resources that continue to support skill development across domains.</p>
 
 <div class="resources-grid">
-
-<a href="https://www.3dhubs.com/knowledge-base/" target="_blank" class="resource-link">
-  <h5>3D Hubs Knowledge Base</h5>
-  <p>Manufacturing & design guides for 3D printing and CNC</p>
-</a>
-
-<a href="https://all3dp.com/" target="_blank" class="resource-link">
-  <h5>All3DP</h5>
-  <p>3D printing news, reviews, and comprehensive tutorials</p>
-</a>
-
-<a href="https://www.arduino.cc/reference/en/" target="_blank" class="resource-link">
-  <h5>Arduino Reference</h5>
-  <p>Complete programming reference for Arduino microcontrollers</p>
-</a>
-
-<a href="https://www.autodesk.com/products/autocad/free-trial" target="_blank" class="resource-link">
-  <h5>AutoCAD Free Trial</h5>
-  <p>Professional 2D/3D CAD software by Autodesk</p>
-</a>
-
-<a href="https://www.autodesk.com/products/fusion-360/students-teachers-educators" target="_blank" class="resource-link">
-  <h5>Autodesk Fusion 360 (Student)</h5>
-  <p>Free cloud-based CAD/CAM for students and educators</p>
-</a>
-
-<a href="https://us.shop.bambulab.com/pages/software" target="_blank" class="resource-link">
-  <h5>Bambu Lab Official</h5>
-  <p>Bambu Studio software and high-speed 3D printer ecosystem</p>
-</a>
-
-<a href="https://www.blender.org/" target="_blank" class="resource-link">
-  <h5>Blender</h5>
-  <p>Open-source 3D modeling and rendering software</p>
-</a>
-
-<a href="https://carbide3d.com/carbidecreate/" target="_blank" class="resource-link">
-  <h5>Carbide Create</h5>
-  <p>Free 2D CAD/CAM software for CNC routers</p>
-</a>
-
-<a href="https://www.cnccookbook.com/" target="_blank" class="resource-link">
-  <h5>CNC Cookbook</h5>
-  <p>G-code programming and CNC machining tutorials</p>
-</a>
-
-<a href="https://codecademy.com/" target="_blank" class="resource-link">
-  <h5>Codecademy</h5>
-  <p>Interactive coding courses for Python, Java, C++, and more</p>
-</a>
-
-<a href="https://www.coursera.org/professional-certificates/google-cybersecurity" target="_blank" class="resource-link">
-  <h5>Coursera Cybersecurity (Google)</h5>
-  <p>Professional certificate in cybersecurity fundamentals</p>
-</a>
-
-<a href="https://www.cults3d.com/en" target="_blank" class="resource-link">
-  <h5>Cults3D</h5>
-  <p>Free and paid 3D printable models community</p>
-</a>
-
-<a href="https://www.edx.org/learn/computer-programming" target="_blank" class="resource-link">
-  <h5>edX Programming Courses</h5>
-  <p>University-level programming and CS courses</p>
-</a>
-
-<a href="https://www.freecadweb.org/" target="_blank" class="resource-link">
-  <h5>FreeCAD</h5>
-  <p>Open-source parametric 3D modeling software</p>
-</a>
-
-<a href="https://www.freecodecamp.org/" target="_blank" class="resource-link">
-  <h5>freeCodeCamp</h5>
-  <p>Free coding bootcamp with certifications</p>
-</a>
-
-<a href="https://github.com/" target="_blank" class="resource-link">
-  <h5>GitHub</h5>
-  <p>Version control, collaboration, and open-source code repository</p>
-</a>
-
-<a href="https://grabcad.com/library" target="_blank" class="resource-link">
-  <h5>GrabCAD Library</h5>
-  <p>Massive library of free CAD models and assemblies</p>
-</a>
-
-<a href="https://hackaday.com/" target="_blank" class="resource-link">
-  <h5>Hackaday</h5>
-  <p>Hardware hacking, electronics projects, and maker culture</p>
-</a>
-
-<a href="https://www.instructables.com/" target="_blank" class="resource-link">
-  <h5>Instructables</h5>
-  <p>DIY project tutorials for electronics and fabrication</p>
-</a>
-
-<a href="https://www.khanacademy.org/computing/computer-programming" target="_blank" class="resource-link">
-  <h5>Khan Academy Programming</h5>
-  <p>Free courses in JavaScript, SQL, and computer science</p>
-</a>
-
-<a href="https://www.lcsc.com/" target="_blank" class="resource-link">
-  <h5>LCSC Electronics</h5>
-  <p>Component sourcing for electronics projects</p>
-</a>
-
-<a href="https://www.linkedin.com/learning/" target="_blank" class="resource-link">
-  <h5>LinkedIn Learning</h5>
-  <p>Professional courses in CAD, programming, and engineering</p>
-</a>
-
-<a href="https://www.lynda.com/SolidWorks-training-tutorials/304-0.html" target="_blank" class="resource-link">
-  <h5>Lynda SolidWorks Courses</h5>
-  <p>Comprehensive SolidWorks training from beginner to advanced</p>
-</a>
-
-<a href="https://makerworld.com/" target="_blank" class="resource-link">
-  <h5>MakerWorld</h5>
-  <p>Bambu Lab's 3D model sharing platform</p>
-</a>
-
-<a href="https://www.matterhackers.com/articles" target="_blank" class="resource-link">
-  <h5>MatterHackers Articles</h5>
-  <p>3D printing guides and material troubleshooting</p>
-</a>
-
-<a href="https://www.mcmaster.com/" target="_blank" class="resource-link">
-  <h5>McMaster-Carr</h5>
-  <p>Industrial component supplier with CAD downloads</p>
-</a>
-
-<a href="https://www.mit.edu/~arobbins/solidworks/" target="_blank" class="resource-link">
-  <h5>MIT SolidWorks Resources</h5>
-  <p>Academic SolidWorks tutorials from MIT</p>
-</a>
-
-<a href="https://www.myminifactory.com/" target="_blank" class="resource-link">
-  <h5>MyMiniFactory</h5>
-  <p>Curated 3D printable models and designs</p>
-</a>
-
-<a href="https://www.onshape.com/en/education/" target="_blank" class="resource-link">
-  <h5>Onshape Education</h5>
-  <p>Cloud-based CAD platform free for students</p>
-</a>
-
-<a href="https://openbuilds.com/" target="_blank" class="resource-link">
-  <h5>OpenBuilds</h5>
-  <p>Open-source CNC and automation hardware community</p>
-</a>
-
-<a href="https://www.printables.com/" target="_blank" class="resource-link">
-  <h5>Printables</h5>
-  <p>Prusa's 3D model repository with contests and rewards</p>
-</a>
-
-<a href="https://www.prusaprinters.org/prints" target="_blank" class="resource-link">
-  <h5>PrusaPrinters</h5>
-  <p>Community-driven 3D printing files and knowledge base</p>
-</a>
-
-<a href="https://www.python.org/about/gettingstarted/" target="_blank" class="resource-link">
-  <h5>Python Official Tutorial</h5>
-  <p>Official Python documentation and getting started guide</p>
-</a>
-
-<a href="https://www.raspberrypi.com/documentation/" target="_blank" class="resource-link">
-  <h5>Raspberry Pi Documentation</h5>
-  <p>Complete guide to Raspberry Pi hardware and projects</p>
-</a>
-
-<a href="https://www.reddit.com/r/3Dprinting/" target="_blank" class="resource-link">
-  <h5>r/3Dprinting</h5>
-  <p>Active community for 3D printing troubleshooting</p>
-</a>
-
-<a href="https://www.reddit.com/r/arduino/" target="_blank" class="resource-link">
-  <h5>r/arduino</h5>
-  <p>Arduino project sharing and technical support</p>
-</a>
-
+<a href="https://www.3dhubs.com/knowledge-base/" target="_blank" class="resource-link"><h5>3D Hubs Knowledge Base</h5><p>Manufacturing & design guides for 3D printing and CNC</p></a>
+<a href="https://all3dp.com/" target="_blank" class="resource-link"><h5>All3DP</h5><p>3D printing news, reviews, and tutorials</p></a>
+<a href="https://www.arduino.cc/reference/en/" target="_blank" class="resource-link"><h5>Arduino Reference</h5><p>Complete programming reference for Arduino</p></a>
+<a href="https://www.autodesk.com/products/fusion-360/students-teachers-educators" target="_blank" class="resource-link"><h5>Fusion 360 (Student)</h5><p>Free cloud-based CAD/CAM for students</p></a>
+<a href="https://us.shop.bambulab.com/pages/software" target="_blank" class="resource-link"><h5>Bambu Lab Official</h5><p>Official software and ecosystem</p></a>
+<a href="https://codecademy.com/" target="_blank" class="resource-link"><h5>Codecademy</h5><p>Interactive coding courses</p></a>
+<a href="https://github.com/" target="_blank" class="resource-link"><h5>GitHub</h5><p>Version control and collaboration</p></a>
+<a href="https://www.mcmaster.com/" target="_blank" class="resource-link"><h5>McMaster-Carr</h5><p>Industrial component supplier with CAD</p></a>
+<a href="https://www.raspberrypi.com/documentation/" target="_blank" class="resource-link"><h5>Raspberry Pi</h5><p>Guide to hardware and projects</p></a>
 </div>
 </section>
 
 <div class="footer">
   AARAV GUPTA
 </div>
+
+<script>
+    // Lightbox Logic
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbClose = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.img img').forEach(image => {
+        image.parentElement.onclick = () => {
+            lb.style.display = 'flex';
+            lbImg.src = image.src;
+        }
+    });
+
+    lbClose.onclick = () => { lb.style.display = 'none'; }
+    lb.onclick = (e) => { if(e.target !== lbImg) lb.style.display = 'none'; }
+</script>
 
 </body>
 </html>
