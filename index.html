@@ -102,6 +102,20 @@ h3{
   margin-bottom:16px;
 }
 
+h4{
+  font-size:1.4rem;
+  font-weight:700;
+  margin-bottom:12px;
+  color:var(--fg);
+}
+
+h5{
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+
 p{
   font-size:1.15rem;
   color:#aaa;
@@ -148,6 +162,7 @@ nav.scrolled{
   overflow:hidden;
   transition:all .6s cubic-bezier(.22,1,.36,1);
   will-change:transform;
+  cursor:pointer;
 }
 .img img{
   width:100%;
@@ -172,11 +187,39 @@ nav.scrolled{
   border-radius:24px;
   backdrop-filter:blur(25px);
   transition:all .6s cubic-bezier(.22,1,.36,1);
+  text-decoration:none;
+  display:block;
+  color:inherit;
 }
 .glass-box:hover{
   transform:translateY(-15px) scale(1.03);
   border-color:var(--accent);
   box-shadow:0 60px 140px rgba(255,77,0,.25);
+}
+
+.glass-box .number{
+  font-size:3rem;
+  font-weight:900;
+  color:var(--accent);
+  display:block;
+  margin-bottom:8px;
+}
+
+.glass-box .label{
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:var(--muted);
+  display:block;
+  margin-bottom:20px;
+}
+
+/* HERO IMPACT GRID */
+.hero-impact{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:30px;
+  margin-top:60px;
 }
 
 /* TIMELINE */
@@ -211,6 +254,177 @@ nav.scrolled{
   50%{box-shadow:0 0 0 16px rgba(255,77,0,0)}
 }
 
+/* MARQUEE */
+.marquee{
+  background:rgba(255,77,0,0.03);
+  padding:30px 0;
+  overflow:hidden;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  position:relative;
+  z-index:2;
+}
+
+.marquee .track{
+  display:flex;
+  gap:60px;
+  animation:scroll 30s linear infinite;
+}
+
+.marquee .item{
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--accent);
+  white-space:nowrap;
+  text-transform:uppercase;
+  letter-spacing:3px;
+}
+
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* CERTIFICATE GRID */
+.cert-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+  gap:30px;
+  margin-top:60px;
+}
+
+.cert{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:20px;
+  background:rgba(255,255,255,0.02);
+  transition:all .4s ease;
+}
+
+.cert:hover{
+  border-color:var(--accent);
+  transform:translateY(-5px);
+}
+
+.cert embed{
+  width:100%;
+  height:400px;
+  border-radius:8px;
+  margin-bottom:15px;
+}
+
+/* RESOURCES GRID */
+.resources-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+  gap:25px;
+  margin-top:60px;
+}
+
+.resource-link{
+  padding:30px;
+  background:linear-gradient(135deg, rgba(255,77,0,0.03), rgba(255,255,255,0.01));
+  border:1px solid var(--border);
+  border-radius:16px;
+  text-decoration:none;
+  display:block;
+  transition:all .4s cubic-bezier(.22,1,.36,1);
+}
+
+.resource-link:hover{
+  transform:translateY(-8px);
+  border-color:var(--accent);
+  box-shadow:0 20px 60px rgba(255,77,0,.15);
+}
+
+.resource-link h5{
+  color:var(--fg);
+  margin-bottom:10px;
+  font-size:1.15rem;
+}
+
+.resource-link p{
+  color:var(--muted);
+  font-size:0.95rem;
+  margin:0;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:40px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+
+table thead{
+  background:rgba(255,77,0,0.1);
+}
+
+table th{
+  padding:18px;
+  text-align:left;
+  font-weight:700;
+  color:var(--accent);
+  text-transform:uppercase;
+  font-size:0.85rem;
+  letter-spacing:2px;
+  border-bottom:2px solid var(--accent);
+}
+
+table td{
+  padding:16px 18px;
+  border-bottom:1px solid var(--border);
+  color:#aaa;
+}
+
+table tr:hover{
+  background:rgba(255,77,0,0.05);
+}
+
+table tr:last-child td{
+  border-bottom:none;
+}
+
+/* LIGHTBOX */
+#lightbox{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.95);
+  z-index:10000;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+
+#lightbox-img{
+  max-width:90%;
+  max-height:90%;
+  border:2px solid var(--accent);
+  box-shadow:0 0 100px rgba(255,77,0,0.3);
+}
+
+#lightbox-close{
+  position:absolute;
+  top:30px;
+  right:50px;
+  font-size:50px;
+  color:var(--accent);
+  cursor:pointer;
+  transition:transform .3s ease;
+}
+
+#lightbox-close:hover{
+  transform:scale(1.2);
+}
+
 /* FOOTER FLOAT */
 .footer{
   font-size:20vw;
@@ -233,6 +447,10 @@ nav.scrolled{
   }
   h1{font-size:15vw}
   h2{font-size:3rem}
+  
+  .marquee .item{
+    font-size:1.2rem;
+  }
 }
 </style>
 
@@ -242,7 +460,7 @@ nav.scrolled{
 
 <div id="lightbox">
     <span id="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="">
+    <img id="lightbox-img" src="" alt="Lightbox Image">
 </div>
 
 <nav>
@@ -277,7 +495,7 @@ that keep working after they're pushed past what they were designed for.</p>
     <span class="number">$1,200+</span>
     <span class="label">Revenue Generated</span>
     <h4>Manufacturing Business</h4>
-    <p>Built a multi-er 3D ing operation with 100+ orders at age 13</p>
+    <p>Built a multi-printer 3D printing operation with 100+ orders at age 13</p>
   </a>
 
   <a href="#mallakhamb" class="glass-box">
@@ -305,7 +523,7 @@ that keep working after they're pushed past what they were designed for.</p>
     <span class="number">50+</span>
     <span class="label">Curated Links</span>
     <h4>Learning Resources</h4>
-    <p>Comprehensive guides for CAD, 3D ing, CNC, coding, and hardware</p>
+    <p>Comprehensive guides for CAD, 3D printing, CNC, coding, and hardware</p>
   </a>
 </div>
 
@@ -352,7 +570,7 @@ that keep working after they're pushed past what they were designed for.</p>
 
 <div class="rail">
   <div class="img">
-    <img src="proof/ballshooting.gif">
+    <img src="proof/ballshooting.gif" alt="Robot Ball Shooting Mechanism">
   </div>
 
   <div class="text">
@@ -413,7 +631,7 @@ that keep working after they're pushed past what they were designed for.</p>
   </p>
 </div>
 
-
+</section>
 
 <section id="manufacturing">
 <h3>Manufacturing & Business</h3>
@@ -421,7 +639,7 @@ that keep working after they're pushed past what they were designed for.</p>
 
 <div class="rail">
     <div class="img">
-      <img src="Full Port Info/projects/dd6e4f2a-7e18-4152-baac-cfce646c067a" alt="3D ed Product">
+      <img src="Full Port Info/projects/dd6e4f2a-7e18-4152-baac-cfce646c067a" alt="3D Printed Product">
     </div>
     <div class="img">
       <img src="proof/printfarm.jpg" alt="3D Printer Setup">
@@ -947,6 +1165,281 @@ and continue to support skill development across domains.</p>
 </div>
 
 <div class="rail" style="margin-top:80px;">
+ <p>
+A comprehensive collection of learning resources across CAD, manufacturing, programming, 
+and hardware systems. These are the tools and platforms that shaped my technical foundation 
+and continue to support skill development across domains.</p>
+
+<div class="resources-grid">
+
+<a href="https://www.3dhubs.com/knowledge-base/" target="_blank" class="resource-link">
+  <h5>3D Hubs Knowledge Base</h5>
+  <p>Manufacturing & design guides for 3D printing and CNC</p>
+</a>
+
+<a href="https://all3dp.com/" target="_blank" class="resource-link">
+  <h5>All3DP</h5>
+  <p>3D printing news, reviews, and comprehensive tutorials</p>
+</a>
+
+<a href="https://www.arduino.cc/reference/en/" target="_blank" class="resource-link">
+  <h5>Arduino Reference</h5>
+  <p>Complete programming reference for Arduino microcontrollers</p>
+</a>
+
+<a href="https://www.autodesk.com/products/autocad/free-trial" target="_blank" class="resource-link">
+  <h5>AutoCAD Free Trial</h5>
+  <p>Professional 2D/3D CAD software by Autodesk</p>
+</a>
+
+<a href="https://www.autodesk.com/products/fusion-360/students-teachers-educators" target="_blank" class="resource-link">
+  <h5>Autodesk Fusion 360 (Student)</h5>
+  <p>Free cloud-based CAD/CAM for students and educators</p>
+</a>
+
+<a href="https://us.shop.bambulab.com/pages/software" target="_blank" class="resource-link">
+  <h5>Bambu Lab Official</h5>
+  <p>Bambu Studio software and high-speed 3D printer ecosystem</p>
+</a>
+
+<a href="https://www.blender.org/" target="_blank" class="resource-link">
+  <h5>Blender</h5>
+  <p>Open-source 3D modeling and rendering software</p>
+</a>
+
+<a href="https://carbide3d.com/carbidecreate/" target="_blank" class="resource-link">
+  <h5>Carbide Create</h5>
+  <p>Free 2D CAD/CAM software for CNC routers</p>
+</a>
+
+<a href="https://www.cnccookbook.com/" target="_blank" class="resource-link">
+  <h5>CNC Cookbook</h5>
+  <p>G-code programming and CNC machining tutorials</p>
+</a>
+
+<a href="https://codecademy.com/" target="_blank" class="resource-link">
+  <h5>Codecademy</h5>
+  <p>Interactive coding courses for Python, Java, C++, and more</p>
+</a>
+
+<a href="https://www.coursera.org/professional-certificates/google-cybersecurity" target="_blank" class="resource-link">
+  <h5>Coursera Cybersecurity (Google)</h5>
+  <p>Professional certificate in cybersecurity fundamentals</p>
+</a>
+
+<a href="https://www.cults3d.com/en" target="_blank" class="resource-link">
+  <h5>Cults3D</h5>
+  <p>Free and paid 3D printable models community</p>
+</a>
+
+<a href="https://www.edx.org/learn/computer-programming" target="_blank" class="resource-link">
+  <h5>edX Programming Courses</h5>
+  <p>University-level programming and CS courses</p>
+</a>
+
+<a href="https://www.freecadweb.org/" target="_blank" class="resource-link">
+  <h5>FreeCAD</h5>
+  <p>Open-source parametric 3D modeling software</p>
+</a>
+
+<a href="https://www.freecodecamp.org/" target="_blank" class="resource-link">
+  <h5>freeCodeCamp</h5>
+  <p>Free coding bootcamp with certifications</p>
+</a>
+
+<a href="https://github.com/" target="_blank" class="resource-link">
+  <h5>GitHub</h5>
+  <p>Version control, collaboration, and open-source code repository</p>
+</a>
+
+<a href="https://grabcad.com/library" target="_blank" class="resource-link">
+  <h5>GrabCAD Library</h5>
+  <p>Massive library of free CAD models and assemblies</p>
+</a>
+
+<a href="https://hackaday.com/" target="_blank" class="resource-link">
+  <h5>Hackaday</h5>
+  <p>Hardware hacking, electronics projects, and maker culture</p>
+</a>
+
+<a href="https://www.instructables.com/" target="_blank" class="resource-link">
+  <h5>Instructables</h5>
+  <p>DIY project tutorials for electronics and fabrication</p>
+</a>
+
+<a href="https://www.khanacademy.org/computing/computer-programming" target="_blank" class="resource-link">
+  <h5>Khan Academy Programming</h5>
+  <p>Free courses in JavaScript, SQL, and computer science</p>
+</a>
+
+<a href="https://www.lcsc.com/" target="_blank" class="resource-link">
+  <h5>LCSC Electronics</h5>
+  <p>Component sourcing for electronics projects</p>
+</a>
+
+<a href="https://www.linkedin.com/learning/" target="_blank" class="resource-link">
+  <h5>LinkedIn Learning</h5>
+  <p>Professional courses in CAD, programming, and engineering</p>
+</a>
+
+<a href="https://www.lynda.com/SolidWorks-training-tutorials/304-0.html" target="_blank" class="resource-link">
+  <h5>Lynda SolidWorks Courses</h5>
+  <p>Comprehensive SolidWorks training from beginner to advanced</p>
+</a>
+
+<a href="https://makerworld.com/" target="_blank" class="resource-link">
+  <h5>MakerWorld</h5>
+  <p>Bambu Lab's 3D model sharing platform</p>
+</a>
+
+<a href="https://www.matterhackers.com/articles" target="_blank" class="resource-link">
+  <h5>MatterHackers Articles</h5>
+  <p>3D printing guides and material troubleshooting</p>
+</a>
+
+<a href="https://www.mcmaster.com/" target="_blank" class="resource-link">
+  <h5>McMaster-Carr</h5>
+  <p>Industrial component supplier with CAD downloads</p>
+</a>
+
+<a href="https://www.mit.edu/~arobbins/solidworks/" target="_blank" class="resource-link">
+  <h5>MIT SolidWorks Resources</h5>
+  <p>Academic SolidWorks tutorials from MIT</p>
+</a>
+
+<a href="https://www.myminifactory.com/" target="_blank" class="resource-link">
+  <h5>MyMiniFactory</h5>
+  <p>Curated 3D printable models and designs</p>
+</a>
+
+<a href="https://www.onshape.com/en/education/" target="_blank" class="resource-link">
+  <h5>Onshape Education</h5>
+  <p>Cloud-based CAD platform free for students</p>
+</a>
+
+<a href="https://openbuilds.com/" target="_blank" class="resource-link">
+  <h5>OpenBuilds</h5>
+  <p>Open-source CNC and automation hardware community</p>
+</a>
+
+<a href="https://www.printables.com/" target="_blank" class="resource-link">
+  <h5>Printables</h5>
+  <p>Prusa's 3D model repository with contests and rewards</p>
+</a>
+
+<a href="https://www.prusaprinters.org/prints" target="_blank" class="resource-link">
+  <h5>PrusaPrinters</h5>
+  <p>Community-driven 3D printing files and knowledge base</p>
+</a>
+
+<a href="https://www.python.org/about/gettingstarted/" target="_blank" class="resource-link">
+  <h5>Python Official Tutorial</h5>
+  <p>Official Python documentation and getting started guide</p>
+</a>
+
+<a href="https://www.raspberrypi.com/documentation/" target="_blank" class="resource-link">
+  <h5>Raspberry Pi Documentation</h5>
+  <p>Complete guide to Raspberry Pi hardware and projects</p>
+</a>
+
+<a href="https://www.reddit.com/r/3Dprinting/" target="_blank" class="resource-link">
+  <h5>r/3Dprinting</h5>
+  <p>Active community for 3D printing troubleshooting</p>
+</a>
+
+<a href="https://www.reddit.com/r/arduino/" target="_blank" class="resource-link">
+  <h5>r/arduino</h5>
+  <p>Arduino project sharing and technical support</p>
+</a>
+
+<a href="https://www.reddit.com/r/CNC/" target="_blank" class="resource-link">
+  <h5>r/CNC</h5>
+  <p>CNC machining discussion and project showcase</p>
+</a>
+
+<a href="https://www.reddit.com/r/SolidWorks/" target="_blank" class="resource-link">
+  <h5>r/SolidWorks</h5>
+  <p>SolidWorks community for tips and troubleshooting</p>
+</a>
+
+<a href="https://www.reddit.com/r/rfelectronics/" target="_blank" class="resource-link">
+  <h5>r/rfelectronics</h5>
+  <p>RF design, SDR, and wireless communication systems</p>
+</a>
+
+<a href="https://simplify3d.com/software/" target="_blank" class="resource-link">
+  <h5>Simplify3D</h5>
+  <p>Advanced slicing software for multi-material printing</p>
+</a>
+
+<a href="https://www.sololearn.com/" target="_blank" class="resource-link">
+  <h5>SoloLearn</h5>
+  <p>Mobile-first programming courses with peer learning</p>
+</a>
+
+<a href="https://www.solidworks.com/sw/education/student-software-3d-mcad.htm" target="_blank" class="resource-link">
+  <h5>SolidWorks Student Edition</h5>
+  <p>Free SolidWorks license for verified students</p>
+</a>
+
+<a href="https://www.youtube.com/user/SolidWorksOfficial" target="_blank" class="resource-link">
+  <h5>SolidWorks YouTube</h5>
+  <p>Official tutorials, tips, and feature demonstrations</p>
+</a>
+
+<a href="https://www.sparkfun.com/tutorials" target="_blank" class="resource-link">
+  <h5>SparkFun Tutorials</h5>
+  <p>Electronics and embedded systems project guides</p>
+</a>
+
+<a href="https://www.thingiverse.com/" target="_blank" class="resource-link">
+  <h5>Thingiverse</h5>
+  <p>Largest 3D printable model repository</p>
+</a>
+
+<a href="https://www.tinkercad.com/" target="_blank" class="resource-link">
+  <h5>Tinkercad</h5>
+  <p>Browser-based beginner CAD and circuit simulation</p>
+</a>
+
+<a href="https://ultimaker.com/software/ultimaker-cura/" target="_blank" class="resource-link">
+  <h5>UltiMaker Cura</h5>
+  <p>Industry-standard open-source slicing software</p>
+</a>
+
+<a href="https://www.udemy.com/topic/solidworks/" target="_blank" class="resource-link">
+  <h5>Udemy SolidWorks Courses</h5>
+  <p>Paid SolidWorks courses from beginner to CSWA prep</p>
+</a>
+
+<a href="https://www.w3schools.com/" target="_blank" class="resource-link">
+  <h5>W3Schools</h5>
+  <p>Web development tutorials for HTML, CSS, JavaScript, Python</p>
+</a>
+
+<a href="https://wiki.bambulab.com/en/home" target="_blank" class="resource-link">
+  <h5>Wiki Bambu Lab</h5>
+  <p>Official documentation for Bambu printers and software</p>
+</a>
+
+<a href="https://www.youtube.com/c/teachingtechau" target="_blank" class="resource-link">
+  <h5>YouTube: Teaching Tech</h5>
+  <p>3D printing calibration and advanced troubleshooting</p>
+</a>
+
+<a href="https://www.youtube.com/c/ThomasSanladerer" target="_blank" class="resource-link">
+  <h5>YouTube: Thomas Sanladerer</h5>
+  <p>In-depth 3D printer reviews and technical breakdowns</p>
+</a>
+
+<a href="https://www.youtube.com/c/CNGIndustrial" target="_blank" class="resource-link">
+  <h5>YouTube: NYC CNC</h5>
+  <p>CNC machining tutorials and shop workflows</p>
+</a>
+
+</div>
+
+<div class="rail" style="margin-top:80px;">
 
   </div>
   <p>
@@ -956,6 +1449,7 @@ and continue to support skill development across domains.</p>
   </p>
 </div>
 </section>
+
 
 <div class="footer">
   AARAV GUPTA
